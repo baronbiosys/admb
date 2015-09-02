@@ -122,6 +122,12 @@ ad_comm::ad_comm(int _argc,char * _argv[])
   */
   set_signal_handlers();
   adprogram_name=_argv[0];
+  int nameopt=-1;
+  nameopt=option_match(argc,argv,"-name");
+	if (nameopt > -1)
+	{
+		adprogram_name = argv[nameopt+1];
+	}
   //int len=strlen(_argv[0]);
   //for (int i=1;i<=len;i++) adprogram_name[i]=tolower(adprogram_name[i]);
 #if defined(_MSC_VER)
